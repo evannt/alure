@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.outdeved</groupId>
 	<artifactId>alure</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>alure</name>
 	<description>Recommends fishing lures based on the weather</description>
 	<url/>
