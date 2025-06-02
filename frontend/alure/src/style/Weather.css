@@ -1,0 +1,131 @@
+.weather-container {
+    border-radius: 0.75rem;
+    background-color: var(--stale-blue);
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+    place-items: center;
+    place-content: center;
+    color: var(--low-blue);
+    margin-top: 1rem;
+    margin-inline: auto;
+    width: min(90%, 300px);
+    padding: 1.5rem;
+}
+
+.region-container {
+    grid-column: 1 / 3;
+    grid-row: 1;
+}
+
+.location {
+    font-size: clamp(1.5rem, 4vw, 1.75rem);
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+    color: var(--low-blue);
+}
+
+.region {
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    font-style: italic;
+    margin-top: 0;
+    opacity: 0.8;
+    line-height: 1.3;
+}
+
+.weather-icon {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.icon {
+    height: 6rem;
+    width: 6rem;
+    transition: transform 0.2s ease-in;
+}
+
+.icon:hover {
+    transform: scale(1.05);
+}
+
+.temperature {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.temperature h3 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+}
+
+.weather-details {
+    grid-column: 2 span;
+    grid-row: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 1rem;
+    gap: 1.5rem;
+}
+
+.weather-details-keys {
+    text-align: left;
+}
+
+.weather-details-values {
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+    .weather-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+        padding-inline: 0;
+        text-align: center;
+        gap: 0;
+    }
+
+    .region-container,
+    .weather-icon,
+    .temperature,
+    .weather-details {
+        grid-column: 1;
+    }
+
+    .weather-icon {
+        grid-row: 2;
+    }
+
+    .temperature {
+        grid-row: 3;
+    }
+
+    .weather-details {
+        grid-row: 4;
+        text-align: center;
+    }
+
+    .weather-details-keys {
+        text-align: center;
+    }
+
+    .weather-details-values {
+        text-align: center;
+    }
+}
+
+@media (max-width: 320px) {
+    .weather-container {
+        padding: 1rem;
+        gap: 0;
+    }
+
+    .icon {
+        height: 4rem;
+        width: 4rem;
+    }
+}

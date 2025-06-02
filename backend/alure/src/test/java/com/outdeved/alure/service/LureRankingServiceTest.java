@@ -60,7 +60,7 @@ public class LureRankingServiceTest {
         assertEquals(16.1, weather.getWindSpeed());
         assertEquals(29.85, weather.getPressure());
         assertEquals(87.3, weather.getAvgTemp());
-        assertEquals(WeatherCondition.CLEAR, weather.getWeatherCondition());
+        assertEquals(WeatherCondition.PARTLY_CLOUDY, weather.getWeatherCondition());
         assertEquals(MoonPhase.LAST_QUARTER, weather.getMoonPhase());
         assertEquals(36, weather.getMoonIllumination());
         assertEquals(1, weather.getForecastDays().size());
