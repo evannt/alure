@@ -5,7 +5,7 @@ function Weather({ suggestion }) {
         <div className="weather-container">
             <div className="region-container">
                 <h3 className="location">{suggestion.name}</h3>
-                <p className="region">{suggestion.region}, {suggestion.country}</p>
+                <p className="region">{suggestion.region}{suggestion.region && ", "}{suggestion.country}</p>
             </div>
             <div className="weather-icon">
                 <img className="icon" src={suggestion.conditionIcon} alt={suggestion.condition} />

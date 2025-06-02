@@ -67,9 +67,9 @@
     grid-row: 2;
     display: flex;
     align-items: center;
+    padding-inline: 0.5rem;
     justify-content: center;
-    padding-inline: 1rem;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .weather-details-keys {
@@ -78,6 +78,10 @@
 
 .weather-details-values {
     text-align: right;
+}
+
+.weather-details-values p {
+    width: 4rem;
 }
 
 @media (max-width: 768px) {
