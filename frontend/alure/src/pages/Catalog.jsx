@@ -39,13 +39,14 @@ function Catalog() {
 
             {loading ? (
                 <Loading />
-            ) : (
-                <div className="catalog-items">
-                    {!error && lures.map((lure) => (
-                        <LureCard lure={lure} key={lure.name} />
-                    ))}
-                </div>
-            )}
+            ) :
+                !error && lures?.length > 0 && (
+                    <div className="catalog-items">
+                        {!error && lures.map((lure) => (
+                            <LureCard lure={lure} key={lure.name} />
+                        ))}
+                    </div>
+                )}
         </div>
     );
 }
