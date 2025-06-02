@@ -22,6 +22,8 @@ public class Weather {
     private String locationRegion;
     private String country;
     private LocalDateTime datetime;
+    private WeatherCondition currentCondition;
+    private String conditionIcon;
     private double temperature;
     private double windSpeed;
     private double pressure;
@@ -38,6 +40,10 @@ public class Weather {
         this.temperature = currentWeatherJson.get("temp_f").getAsDouble();
         this.windSpeed = currentWeatherJson.get("wind_mph").getAsDouble();
         this.pressure = currentWeatherJson.get("pressure_in").getAsDouble();
+        JsonObject currentWeatherConditionJson = currentWeatherJson.get("condition").getAsJsonObject();
+        int conditionCode = currentWeatherConditionJson.get("code").getAsInt();
+        this.currentCondition = WeatherCondition.fromCode(conditionCode);
+        this.conditionIcon = currentWeatherConditionJson.get("icon").getAsString();
 
         JsonArray forecastJsonArray = json.get("forecast").getAsJsonObject().get("forecastday").getAsJsonArray();
         this.forecastDays = GsonUtil.GSON.fromJson(forecastJsonArray, new TypeToken<List<ForecastDay>>() {
@@ -58,6 +64,10 @@ public class Weather {
 
     public LocalDateTime getDateTime() {
         return datetime;
+    }
+
+    public String getConditionIcon() {
+        return conditionIcon;
     }
 
     public Month getMonth() {
@@ -81,7 +91,7 @@ public class Weather {
     }
 
     public WeatherCondition getWeatherCondition() {
-        return getCurrentForecast().getWeatherCondition();
+        return currentCondition;
     }
 
     public MoonPhase getMoonPhase() {
