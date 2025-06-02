@@ -1,5 +1,4 @@
 const API_URL = import.meta.env.VITE_API_URL;
-//"https://alure.onrender.com/lures/catalog";
 
 export async function getCatalog() {
     const response = await fetch(`${API_URL}/lures/catalog`);
