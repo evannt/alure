@@ -1,0 +1,66 @@
+.lure-card {
+    border-radius: 0.75rem;
+    background-color: white;
+    height: 400px;
+    width: 300px;
+    position: relative;
+    overflow: hidden;
+    color: var(--gray-beige);
+    display: grid;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.lure-card:hover {
+    box-shadow: 0 0 1rem var(--low-blue);
+}
+
+.lure-card-top {
+    height: 100px;
+    position: relative;
+    background-color: var(--stale-blue);
+    /* Gradient top bar */
+    /* background:
+        linear-gradient( to top, transparent, var(--stale-blue)), 
+        linear-gradient( to bottom, transparent, var(--stale-blue)); */
+}
+
+.lure-icon {
+    position: absolute;
+    /* left: 125px; */
+    left: 100px;
+    top: 40px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 0.4rem solid white;
+    box-sizing: border-box;
+    background-color: var(--low-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lure-details {
+    margin-inline: 1.5rem;
+}
+
+.lure-name {
+    font-size: 1.55rem;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.lure-condition {
+    font-size: 0.7rem;
+    margin: 0;
+    padding: 0;
+}
+
+.lure-reason {
+    font-size: 0.8rem;
+    margin-inline: 1rem;
+    padding-bottom: 0;
+    margin-top: auto;
+    font-style: italic;
+    color: var(--stale-blue);
+}

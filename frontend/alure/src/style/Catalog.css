@@ -1,0 +1,45 @@
+.catalog-container {
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+.catalog-details {
+    font-size: 1.2rem;
+    font-weight: 400;
+    flex-wrap: wrap;
+}
+
+.catalog-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-inline: auto;
+    max-width: 80rem;
+    width: fit-content;
+    box-sizing: border-box;
+    padding-inline: 0;
+}
+
+@media (max-width: 768px) {
+    .catalog-container {
+        padding: 1.5rem 0.5rem;
+    }
+
+    .catalog-items {
+        gap: clamp(0.75rem, 2vw, 1.5rem);
+        padding: 0 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .catalog-container {
+        padding: 1rem 0.25rem;
+    }
+
+    .catalog-items {
+        gap: 1rem;
+        padding: 0 0.25rem;
+    }
+}

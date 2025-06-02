@@ -12,6 +12,7 @@ public class LureRecommendationReport {
     private double temp;
     private int estWaterTemp;
     private String condition;
+    private String conditionIcon;
     private double pressure;
 
     private List<LureRecommendation> lures;
@@ -23,6 +24,7 @@ public class LureRecommendationReport {
         this.temp = weather.getTemperature();
         this.estWaterTemp = estWaterTemp;
         this.condition = weather.getWeatherCondition().name;
+        this.conditionIcon = weather.getConditionIcon();
         this.pressure = weather.getPressure();
         this.lures = lures;
     }
@@ -49,6 +51,10 @@ public class LureRecommendationReport {
 
     public String getCondition() {
         return condition;
+    }
+
+    public String getConditionIcon() {
+        return conditionIcon;
     }
 
     public double getPressure() {
