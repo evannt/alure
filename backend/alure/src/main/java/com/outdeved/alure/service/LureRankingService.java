@@ -7,6 +7,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -111,7 +112,11 @@ public class LureRankingService {
     }
 
     protected int getWaterTempEstimate(List<ForecastDay> forecastDays) {
-        double weightDecayRate = 0.98;
+        forecastDays = forecastDays.stream()
+                .sorted((a, b) -> b.getDate().compareTo(a.getDate()))
+                .collect(Collectors.toList());
+
+        double weightDecayRate = 0.96;
         double weightedAvgAirTemps = 0;
         double totalWeight = 0;
         for (int i = 0; i < forecastDays.size(); i++) {
@@ -119,8 +124,18 @@ public class LureRankingService {
             weightedAvgAirTemps += (weight * forecastDays.get(i).getAvgTemp());
             totalWeight += weight;
         }
-        double baseWaterTemp = (int) (0.98 * (weightedAvgAirTemps / totalWeight));
-        double temperatureTrend = 0.25 * getTemperatureTrend(forecastDays);
+        double avgAirTemp = forecastDays.get(0).getAvgTemp();
+        double weightedAvgAirTemp = weightedAvgAirTemps / totalWeight;
+        double tempCoefficient;
+        if (avgAirTemp < 40) {
+            tempCoefficient = 0.75;
+        } else if (avgAirTemp > 80) {
+            tempCoefficient = 0.875;
+        } else {
+            tempCoefficient = 0.95;
+        }
+        double baseWaterTemp = tempCoefficient * weightedAvgAirTemp;
+        double temperatureTrend = 0.75 * getTemperatureTrend(forecastDays);
         return (int) Math.round(baseWaterTemp + temperatureTrend);
     }
 
@@ -128,6 +143,9 @@ public class LureRankingService {
         if (forecastDays.size() < 3)
             return 0;
 
-        return (forecastDays.get(0).getAvgTemp() - forecastDays.get(2).getAvgTemp()) / 2.0;
+        double recentAvg = (forecastDays.get(0).getAvgTemp() + forecastDays.get(1).getAvgTemp()) / 2.0;
+        double olderTemp = forecastDays.get(2).getAvgTemp();
+
+        return (recentAvg - olderTemp) / 2.0;
     }
 }
