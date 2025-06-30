@@ -181,7 +181,7 @@ public class LureRecommendationSystem {
     }
 
     public static List<LureRecommendation> getLureRecommendations(int waterTemperature, Month month) {
-        return getLureRecommendations(3, waterTemperature, month);
+        return getLureRecommendations(5, waterTemperature, month);
     }
 
     public static List<LureRecommendation> getLureRecommendations(int maxLures, int waterTemperature, Month month) {

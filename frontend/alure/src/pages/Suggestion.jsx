@@ -40,7 +40,7 @@ function Suggestion() {
                 </div>
 
                 <form onSubmit={fetchSuggestions} className="suggest-form">
-                    <input type="text" className="suggest-input" placeholder="Enter a location..." value={searchLocation} onChange={(e) => setSearchLocation(e.target.value)}/>
+                    <input type="text" className="suggest-input" placeholder="Enter a location..." value={searchLocation} onChange={(e) => setSearchLocation(e.target.value)} />
                     <button type="submit" className="suggest-btn">Suggest</button>
                     <button className="suggest-btn" onClick={() => setSearchLocation("")}>Reset</button>
                 </form>
@@ -48,22 +48,22 @@ function Suggestion() {
 
             {error && <div className="error">{error}</div>}
 
-            { loading ? (
+            {loading ? (
                 <Loading />
-            ) : 
+            ) :
                 !error && suggestion?.lures?.length > 0 && (
-                <>
-                    <Weather suggestion={suggestion} />
+                    <>
+                        <Weather suggestion={suggestion} />
 
-                    <h2>Suggested Lures</h2>
+                        <h2>Suggested Lures</h2>
 
-                    <div className="lure-container">
-                        {suggestion.lures.map((lure) => (
-                            <LureCard lure={lure} key={lure.name} />
-                        ))}
-                    </div>
-                </>
-            )}
+                        <div className="lure-container">
+                            {suggestion.lures.map((lure) => (
+                                <LureCard lure={lure} key={lure.name} />
+                            ))}
+                        </div>
+                    </>
+                )}
         </div>
     );
 }
