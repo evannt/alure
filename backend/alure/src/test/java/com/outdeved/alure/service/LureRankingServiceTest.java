@@ -142,7 +142,6 @@ public class LureRankingServiceTest {
     public void testGetWaterTempEstimate() {
         List<ForecastDay> forecastDays = TestUtil.loadPastWeatherJson("weather/pastWeather.json");
         int waterTempEstimate = lureRankingService.getWaterTempEstimate(forecastDays);
-        System.out.println("\n\nWATER TEMP EST: " + waterTempEstimate);
         assertTrue(waterTempEstimate > 0);
         assertTrue(waterTempEstimate < 100);
     }

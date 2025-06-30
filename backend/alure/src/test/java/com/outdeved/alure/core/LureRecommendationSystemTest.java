@@ -20,7 +20,7 @@ public class LureRecommendationSystemTest {
         System.out.println("\nMonth: " + month + ", Temp:" + waterTemp);
         System.out.println(recommendations);
         assertNotNull(recommendations);
-        assertEquals(3, recommendations.size());
+        assertEquals(5, recommendations.size());
         for (LureRecommendation recommendation : recommendations) {
             assertNotNull(recommendation);
         }
@@ -34,7 +34,7 @@ public class LureRecommendationSystemTest {
         System.out.println("\nMonth: " + month + ", Temp:" + waterTemp);
         System.out.println(recommendations);
         assertNotNull(recommendations);
-        assertEquals(3, recommendations.size());
+        assertEquals(5, recommendations.size());
         for (LureRecommendation recommendation : recommendations) {
             assertNotNull(recommendation);
         }
@@ -48,7 +48,7 @@ public class LureRecommendationSystemTest {
         System.out.println("\nMonth: " + month + ", Temp:" + waterTemp);
         System.out.println(recommendations);
         assertNotNull(recommendations);
-        assertEquals(3, recommendations.size());
+        assertEquals(5, recommendations.size());
         for (LureRecommendation recommendation : recommendations) {
             assertNotNull(recommendation);
         }
@@ -62,7 +62,7 @@ public class LureRecommendationSystemTest {
         System.out.println("\nMonth: " + month + ", Temp:" + waterTemp);
         System.out.println(recommendations);
         assertNotNull(recommendations);
-        assertEquals(3, recommendations.size());
+        assertEquals(5, recommendations.size());
         for (LureRecommendation recommendation : recommendations) {
             assertNotNull(recommendation);
         }
@@ -76,7 +76,7 @@ public class LureRecommendationSystemTest {
         System.out.println("\nMonth: " + month + ", Temp:" + waterTemp);
         System.out.println(recommendations);
         assertNotNull(recommendations);
-        assertEquals(3, recommendations.size());
+        assertEquals(5, recommendations.size());
         for (LureRecommendation recommendation : recommendations) {
             assertNotNull(recommendation);
         }
@@ -90,7 +90,7 @@ public class LureRecommendationSystemTest {
         System.out.println("\nMonth: " + month + ", Temp:" + waterTemp);
         System.out.println(recommendations);
         assertNotNull(recommendations);
-        assertEquals(3, recommendations.size());
+        assertEquals(5, recommendations.size());
         for (LureRecommendation recommendation : recommendations) {
             assertNotNull(recommendation);
         }
